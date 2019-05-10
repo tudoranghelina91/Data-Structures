@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wantsome_Week_04.Handlers;
 
 namespace QueueImplementation.DriverProgramClasses
 {
@@ -11,20 +10,20 @@ namespace QueueImplementation.DriverProgramClasses
     {
         internal static void Add(Queue queue)
         {
-            queue.Enqueue(InputHandling.ReadValue("Value to add: "));
-            OutputHandling.Message($"{queue.First.Value} has been added to the queue...", ConsoleColor.Green);
+            queue.Enqueue(Convert.ToInt32(Console.ReadLine()));
+            Console.WriteLine($"{queue.First.Value} has been added to the queue...", ConsoleColor.Green);
         }
         internal static void Remove(Queue queue)
         {
             try
             {
                 queue.Dequeue();
-                OutputHandling.Message($"{queue.First.Value} has been removed from the queue...", ConsoleColor.Red);
+                Console.WriteLine($"{queue.First.Value} has been removed from the queue...", ConsoleColor.Red);
             }
 
             catch
             {
-                OutputHandling.Message($"The queue is empty", ConsoleColor.Red);
+                Console.WriteLine($"The queue is empty", ConsoleColor.Red);
             }
         }
 
@@ -32,13 +31,14 @@ namespace QueueImplementation.DriverProgramClasses
         {
             if (queue.First != null)
             {
-                OutputHandling.Message("Elements in queue: ", newLine: false);
-                queue.Print();
+               Console.Write("Elements in queue: ");
+               queue.Print();
+                Console.WriteLine();
             }
 
             else
             {
-                OutputHandling.Message("There are no elements in the current list!", consoleColor: ConsoleColor.Magenta);
+                Console.WriteLine("There are no elements in the current list!", ConsoleColor.Magenta);
             }
         }
     }
