@@ -10,6 +10,7 @@ namespace QueueImplementation.DriverProgramClasses
     {
         internal static void Add(Queue queue)
         {
+            Console.Write("Element to add: ");
             queue.Enqueue(Convert.ToInt32(Console.ReadLine()));
             Console.WriteLine($"{queue.First.Value} has been added to the queue...", ConsoleColor.Green);
         }
