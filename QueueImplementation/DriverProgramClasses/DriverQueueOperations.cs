@@ -18,8 +18,8 @@ namespace QueueImplementation.DriverProgramClasses
         {
             try
             {
-                queue.Dequeue();
                 Console.WriteLine($"{queue.First.Value} has been removed from the queue...", ConsoleColor.Red);
+                queue.Dequeue();
             }
 
             catch
